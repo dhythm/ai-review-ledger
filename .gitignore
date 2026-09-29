@@ -1,0 +1,14 @@
+/target
+**/*.rs.bk
+apps/api/data/
+*.db
+*.db-wal
+*.db-shm
+
+node_modules
+apps/web/dist
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
