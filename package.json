@@ -1,0 +1,21 @@
+{
+  "name": "ai-review-ledger",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.33.3",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev:api": "cargo run -p ai-review-ledger-api",
+    "dev:web": "pnpm --filter ai-review-ledger-web dev",
+    "build:web": "pnpm --filter ai-review-ledger-web build",
+    "test": "pnpm test:web && pnpm test:api",
+    "test:web": "pnpm --filter ai-review-ledger-web test",
+    "test:web:watch": "pnpm --filter ai-review-ledger-web test:watch",
+    "test:api": "cargo test --workspace --locked"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
