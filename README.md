@@ -7,7 +7,7 @@ AIの回答を、採用・要修正・不採用の判断、リスク、根拠の
 ## 前提
 
 - Rust stable と Cargo（1.85 以上。ロックされた依存に edition 2024 のクレートが含まれる）
-- Node.js 20 以上
+- Node.js 20.19 以上
 - pnpm 10（ルート `package.json` の `packageManager`）
 
 pnpm が無いときは Corepack で入れます。
@@ -107,6 +107,8 @@ pnpm test:api        # cargo test --workspace --locked
 `pnpm test:api` はカレントディレクトリが `apps/api` である必要はありません。ルートで `cargo test --workspace --locked` を直接実行しても同じテストです。
 
 Web のテストは対象の隣に置きます（例: `apps/web/src/labels.test.ts`、`apps/web/src/components/Badges.test.tsx`）。日付表示のテストは `Asia/Tokyo` 固定です（`apps/web/vite.config.ts` の `test.env.TZ`）。API のテストは各モジュールの `#[cfg(test)]` にあります。
+
+`main` への push と pull request では、GitHub Actions が `pnpm test:web` と `pnpm test:api` を実行します。
 
 本番ビルドの確認は次です。型チェックと Vite のビルドを行います。
 
