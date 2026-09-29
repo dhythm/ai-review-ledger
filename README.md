@@ -108,6 +108,8 @@ pnpm test:api        # cargo test --workspace --locked
 
 Web のテストは対象の隣に置きます（例: `apps/web/src/labels.test.ts`、`apps/web/src/components/Badges.test.tsx`）。日付表示のテストは `Asia/Tokyo` 固定です（`apps/web/vite.config.ts` の `test.env.TZ`）。API のテストは各モジュールの `#[cfg(test)]` にあります。
 
+`main` への push と pull request では、GitHub Actions が `pnpm test:web` と `pnpm test:api` を実行します。
+
 本番ビルドの確認は次です。型チェックと Vite のビルドを行います。
 
 ```bash
