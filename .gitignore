@@ -12,3 +12,5 @@ apps/web/dist
 .env
 .env.*
 !.env.example
+
+/tasks/
