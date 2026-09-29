@@ -106,7 +106,7 @@ pnpm test:api        # cargo test --workspace --locked
 
 `pnpm test:api` はカレントディレクトリが `apps/api` である必要はありません。ルートで `cargo test --workspace --locked` を直接実行しても同じテストです。
 
-Web のテストは対象の隣に置きます（例: `apps/web/src/labels.test.ts`、`apps/web/src/components/Badges.test.tsx`）。日付表示のテストは `Asia/Tokyo` 固定です（`apps/web/vite.config.ts` の `test.env.TZ`）。API のテストは各モジュールの `#[cfg(test)]` にあります。
+Web のテストは対象の隣に置きます（例: `apps/web/src/labels.test.ts`、`apps/web/src/components/Badges.test.tsx`）。日付表示のテストは `Asia/Tokyo` 固定です（`apps/web/vite.config.ts` の `test.env.TZ`）。API の HTTP テストは `apps/api/tests/` にあります。入力の正規化の単体テストは `apps/api/src/models.rs` の `#[cfg(test)]` にあります。
 
 `main` への push と pull request では、GitHub Actions が `pnpm test:web` と `pnpm test:api` を実行します。
 

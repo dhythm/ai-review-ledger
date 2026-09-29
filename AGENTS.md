@@ -36,7 +36,7 @@ pnpm test:api        # cargo test --workspace --locked
 
 GitHub Actions runs `pnpm test:web` and `pnpm test:api` on push to `main` and on pull requests.
 
-Put web tests next to the code they cover (`apps/web/src/labels.test.ts`, `apps/web/src/components/Badges.test.tsx`). Date formatting tests assume `TZ=Asia/Tokyo`, set in `apps/web/vite.config.ts`. API tests stay in the Rust modules under `#[cfg(test)]`.
+Put web tests next to the code they cover (`apps/web/src/labels.test.ts`, `apps/web/src/components/Badges.test.tsx`). Date formatting tests assume `TZ=Asia/Tokyo`, set in `apps/web/vite.config.ts`. HTTP API tests are integration tests in `apps/api/tests/`. Normalization unit tests stay in `apps/api/src/models.rs` under `#[cfg(test)]`.
 
 ### Naming Rules
 
