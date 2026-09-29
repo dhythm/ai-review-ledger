@@ -7,7 +7,7 @@ AIの回答を、採用・要修正・不採用の判断、リスク、根拠の
 ## 前提
 
 - Rust stable と Cargo（1.85 以上。ロックされた依存に edition 2024 のクレートが含まれる）
-- Node.js 20.19 以上
+- Node.js 24.15 以上
 - pnpm 10（ルート `package.json` の `packageManager`）
 
 pnpm が無いときは Corepack で入れます。
