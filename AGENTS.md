@@ -13,7 +13,7 @@ JavaScript is a pnpm workspace. Rust stays a Cargo workspace. Do not add Nx or T
 - `apps/api` — Axum + SQLite. Cargo workspace member (`Cargo.toml`). Tests use `cargo test`.
 - Root `package.json` — cross-cutting `dev:*`, `build:web`, and `test*` scripts.
 
-Prerequisites: Rust stable 1.85+ (the lockfile includes edition 2024 crates) and Cargo, Node.js 20.19+, pnpm 10 (`packageManager` in the root `package.json`). If pnpm is missing: `corepack enable` then `corepack install`.
+Prerequisites: Rust stable 1.85+ (the lockfile includes edition 2024 crates) and Cargo, Node.js 24.15+, pnpm 10 (`packageManager` in the root `package.json`). If pnpm is missing: `corepack enable` then `corepack install`.
 
 Install from the repository root. Do not run `npm install` inside `apps/web`; the lockfile is `pnpm-lock.yaml`.
 
@@ -36,7 +36,7 @@ pnpm test:api        # cargo test --workspace --locked
 
 GitHub Actions runs `pnpm test:web` and `pnpm test:api` on push to `main` and on pull requests.
 
-Put web tests next to the code they cover (`apps/web/src/labels.test.ts`, `apps/web/src/components/Badges.test.tsx`). Date formatting tests assume `TZ=Asia/Tokyo`, set in `apps/web/vite.config.ts`. API tests stay in the Rust modules under `#[cfg(test)]`.
+Put web tests next to the code they cover (`apps/web/src/labels.test.ts`, `apps/web/src/components/Badges.test.tsx`). Date formatting tests assume `TZ=Asia/Tokyo`, set in `apps/web/vite.config.ts`. HTTP API tests are integration tests in `apps/api/tests/`. Normalization unit tests stay in `apps/api/src/models.rs` under `#[cfg(test)]`.
 
 ### Naming Rules
 
